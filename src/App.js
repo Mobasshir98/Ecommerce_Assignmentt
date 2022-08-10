@@ -32,6 +32,9 @@ function App() {
       return d.category === selectvalue;
     }
   });
+  useEffect(()=>{
+    setPageNumber(0)
+  },[selectvalue])
   const pageCount =
     tempproduct.length > 0 ? Math.ceil(tempproduct.length / imageperpage) : 0;
 
@@ -94,6 +97,7 @@ function App() {
         nextLinkClassName={"nextbtn"}
         disabledClassName={"paginationdisabled"}
         activeClassName={"paginationactive"}
+        forcePage={pageNumber}
       />
     </>
   );
